@@ -86,6 +86,3 @@ Desde cualquier otra red/dispositivo (datos móviles, compañero, etc.) → Conn
 → Demuestra que el acceso administrativo está 100% restringido por admin_ips
 
 
-
-
-## 5. Leemos la 
