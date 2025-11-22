@@ -1,6 +1,9 @@
-# SIMULADOR DISTRIBUIDO CON ZERO TRUST (NTFTABLES)
+# SIMULADOR DISTRIBUIDO DE PLANIFICACIÓN DE PROCESO CON ZERO TRUST (NTFTABLES) 
 
-** JUAN MANUEL VIZUETTE FAJARDO && JUAN CARLOS MUÑOZ PABON
+** INTEGRANTES:** 
+JUAN MANUEL VIZUETTE FAJARDO 
+JUAN CARLOS MUÑOZ PABON
+** FECHA:**21 DE NOVIEMBRE DEL 2025
 
 # ARQUITECTURA DEL SISTEMA
 
@@ -11,7 +14,7 @@
 | Worker 2    | worker2     | `20.151.61.138`          | 172.17.0.6   | Ejecuta FCFS            |
 
 
-- Todas las VMs en la misma VNet/subred privada
+- Configuramos todas las VMs en la misma VNet/subred privada
 - **NSG completamente cerrados** → única defensa: nftables
 - Comunicación del simulador: por **Elastic IP** en puerto 9001
 
@@ -24,7 +27,7 @@ python3 ~/simulador/worker.py
 # En controller
 python3 ~/simulador/controller.py
 
-## 3. Firewall Zero Trust
+## 3. Configuracion del Firewall Zero Trust
 
 table inet filter {
     set admin_ips { elements = { 181.52.169.145, 190.242.58.130 } }
@@ -38,3 +41,8 @@ table inet filter {
         tcp dport 9001 ip saddr @cluster_ips accept
     }
 }
+
+## 4. Lectura de los resultados generados por el simulador
+cat ~/simulador/controller.py
+
+## 5. Leemos la 
